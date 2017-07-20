@@ -30,3 +30,20 @@
 
 * Update & re-render component without using component-level state
 
+## URL Shortener
+*Project [URL Shortener](https://github.com/eriknguyen/markdown-realtime/tree/master/url-shortener)*
+
+### Challenges
+* Way to store links
+* Redirect user from a shortened URL to the original one
+* Record a number of clicks for each URL
+
+### Initial Setup
+* Add Bootstrap as a Meteor package: `meteor add twbs:bootstrap@3.3.6`
+* `npm install --save react react-dom`
+* Setup `Header` component
+* Create `Links` collection in `imports/collection` to be shared between both client and server
+* Create URL form component, on form submit:
+  * Validate URL input from user
+  * Create new token that matches this URL
+  * Add the token and original URL to a `links` collection
