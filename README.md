@@ -11,11 +11,11 @@
 * React -> Take data to product HTML, handle user events
 
 ## React Primer
-*Project [Images Gallery]()*
+*Project [Images Gallery](https://github.com/eriknguyen/markdown-realtime/tree/master/images)*
 * `Meteor.startup(() => {})`: takes the function, run it when Meteor has started up: meteor has loaded, all HTML & DOM elements are rendered
 
 ## Meteor Overview
-*Project [Employee Directory](https://github.com/eriknguyen/realtime-react-meteor/tree/master/...)*
+*Project [Employee Directory](https://github.com/eriknguyen/markdown-realtime/tree/master/employee-directory)*
 * Folder:
   * client: to be bundled and served to client
   * server: server code
@@ -28,4 +28,5 @@
 
 * `react-meteor-data` can be used to create a *container* - a function that update some amount of data being passed to the component whenever a subscription changes -> watch collection, if update, load all new updated records to the react component
 
+* Update & re-render component without using component-level state
 
