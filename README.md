@@ -44,6 +44,28 @@
 * Setup `Header` component
 * Create `Links` collection in `imports/collection` to be shared between both client and server
 * Create URL form component, on form submit:
-  * Validate URL input from user
+  * Validate URL input from user -> `this.refs.inputRef.value`
   * Create new token that matches this URL
   * Add the token and original URL to a `links` collection
+* `meteor remove autopublish` for setup secure publish/subscribe system
+
+### Manipulate data with Meteor
+* `meteor remove insecure` -> to securely access database & save data
+* `Meteor.methods({'method_name': method_function})` and `Meteor.call('method_name', args[, callback])` for creating and calling secure methods between client and server
+* Validate user url input
+  * Using `valid-url` npm package and it's `isUri(url)` function
+  * Using `check`, `Match` from `meteor/check` package
+    * `check`: run validation on a var, if a var passes -> `check` does nothing, else -> throw an error
+    * `Match`: used to run customed validation function
+
+### Display list of links
+* Setup publish/subscribe system
+* `meteor add react-meteor-data`
+
+### Intercepting requests with Meteor Middleware
+* Use `meteor/webapp` - Meteor server, for handling incoming request  
+    `WebApp.connectHandlers.use(req => {/* handle request here */})`  
+    or  
+    `WebApp.connectHandlers.use(middleware)`
+* Install `connect-route` for routing (similar to Express routing) -> creates a middleware that takes in HTTP request, check route then does according actions
+* Update number of clicks using Mongo Modifier `{$inc: {}}` inside the `update()` method, eg. `Links.update(link, { $inc: { clicks: 1 }})`
