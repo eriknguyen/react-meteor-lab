@@ -81,6 +81,8 @@
 ### Dependencies
 * `meteor add react-meteor-data`
 * `meteor add twbs:bootstrap@3.3.6`
+* `meteor remove insecure`
+* `meteor remove autopublish`
 * `npm install react react-dom react-addons-pure-render-mixin`
 
 ### User Authentication
@@ -92,3 +94,13 @@
   * Need to manually clean up that part rendered by other libraries (eg. using `componentWillUnmount()`)
 * Install dependencies for this: `meteor add accounts-ui accounts-password`
 * Try using native implementation of `bcrypt`: `meteor npm install --save bcrypt` (faster than JS-implementation used by default in Meteor)
+
+### Create collection `Bins`
+* Schema: createdAt, content, ownerId, sharedWith
+* Access current user by using `this.userId` inside of the Meteor methods
+* Use of `function` keyword vs `()=>{}`:
+  * `this` inside an arrow function is the surrounding context
+  * Use `function` keyword, `this` can be referred to the runtime context, so we can use `this.userId`
+* Setup publish/subscribe system for providing bins from the server and displaying bins on the client
+  * Use `createContainer()` from `meteor/react-meteor-data` to subscribe the `bins` collection to the `BinsList` React component
+* Handle bin element `onClick` -> use arrow function `onClick={() => this.onBinRemove(bin)}` instead of passing a `this.onBinRemove(bin)` function right in the JSX -> can pass the correct `bin` argument into that function
