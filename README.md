@@ -69,3 +69,26 @@
     `WebApp.connectHandlers.use(middleware)`
 * Install `connect-route` for routing (similar to Express routing) -> creates a middleware that takes in HTTP request, check route then does according actions
 * Update number of clicks using Mongo Modifier `{$inc: {}}` inside the `update()` method, eg. `Links.update(link, { $inc: { clicks: 1 }})`
+
+## Collaborative Markdown Editor
+*Project dir [Markdown Bin](https://github.com/eriknguyen/markdown-realtime/tree/master/markdown-editor)*
+
+### Main features
+* User can navigate between different pages -> `react-router`
+* Need a full authentication system, using builtin Meteor methods
+* `bins` collection belongs specifically to only the owner/editor of a bin
+
+### Dependencies
+* `meteor add react-meteor-data`
+* `meteor add twbs:bootstrap@3.3.6`
+* `npm install react react-dom react-addons-pure-render-mixin`
+
+### User Authentication
+*All already written by Meteor*
+* Get Blaze (or generally other rendering libraries) to work with React to make use of Blaze account authentication forms
+  * Let React renders a DOM element
+  * Use React life cycle methods for calling function automatically
+  * Find that particular DOM node and use another library to render to it (eg. inside `componentDidMount()`)
+  * Need to manually clean up that part rendered by other libraries (eg. using `componentWillUnmount()`)
+* Install dependencies for this: `meteor add accounts-ui accounts-password`
+* Try using native implementation of `bcrypt`: `meteor npm install --save bcrypt` (faster than JS-implementation used by default in Meteor)
