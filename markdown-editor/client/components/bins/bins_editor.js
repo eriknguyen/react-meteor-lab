@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CodeMirror from 'react-codemirror';
+import CodeMirror from '@skidding/react-codemirror';
 
 // import a path directly -> the code will be executed automatically, just import & execute
 import 'codemirror/mode/markdown/markdown';

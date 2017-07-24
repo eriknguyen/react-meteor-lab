@@ -77,6 +77,9 @@
 * User can navigate between different pages -> `react-router`
 * Need a full authentication system, using builtin Meteor methods
 * `bins` collection belongs specifically to only the owner/editor of a bin
+* _//TODO_
+  * Explore more on user management
+  * Let users choose to display bins that they own or they are shared with
 
 ### Dependencies
 * `meteor add react-meteor-data`
@@ -113,8 +116,18 @@
 
 ### Hook up the main editor
 * Using [React Codemirror](https://github.com/JedWatson/react-codemirror)
+* __Note__ on react-codemirror bug -> editor doesn't re-render the component when state changes
+  * Use `"@skidding/react-codemirror": "^1.0.0"` for npm package instead of the original one
+  * Using `import CodeMirror from '@skidding/react-codemirror';`
 * Install dependencies:
   * `npm install --save react-codemirror`
   * `meteor add sgslo:cmstyle` for styling the editor
 * Use `onEditorChange(content)` to update and store bin content when user changes
 * `markdown` npm package for translate markdown str into html view
+* Use `dangerouslySetInnerHTML={{ __html: rawHtml }}` in a component to render html string as HTML. Unsafe because of higher chance for XSS to break the website
+
+### Sharing with other users
+* Create component for handle shared email
+* Setup new publication -> publish all the bins that an user has been shared with
+  * `Meteor.users.find(...)` accesses `users` Mongo collection, auto-created by Meteor to stored registered users
+  * Subcribe to the new `sharedBins` publication for components: BinsMain and BinsList
