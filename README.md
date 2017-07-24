@@ -103,4 +103,16 @@
   * Use `function` keyword, `this` can be referred to the runtime context, so we can use `this.userId`
 * Setup publish/subscribe system for providing bins from the server and displaying bins on the client
   * Use `createContainer()` from `meteor/react-meteor-data` to subscribe the `bins` collection to the `BinsList` React component
-* Handle bin element `onClick` -> use arrow function `onClick={() => this.onBinRemove(bin)}` instead of passing a `this.onBinRemove(bin)` function right in the JSX -> can pass the correct `bin` argument into that function
+* Handle bin element `onClick` -> use arrow function (only function definition without invoking) `onClick={() => this.onBinRemove(bin)}` instead of passing a `this.onBinRemove(bin)` function (this is invoked with probably incorrect `bin` argument) right in the JSX -> can pass the correct `bin` argument into that function
+
+### Using React-Router for navigation
+* Use of `BrowserRoute`, `Route`, `Switch`
+* Access url params from React component using `props.match.params.paramName`
+* Alternative for anchor tag: `Link` from `react-router-dom`
+* Use `this.props.history.push("url_str")` to redirect the user
+
+### Hook up the main editor
+* Using [React Codemirror](https://github.com/JedWatson/react-codemirror)
+* Install dependencies:
+  * `npm install --save react-codemirror`
+  * `meteor add sgslo:cmstyle` for styling the editor

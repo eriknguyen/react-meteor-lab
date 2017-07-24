@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import Accounts from './accounts';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   onBinClick(event) {
     event.preventDefault();
 
-    Meteor.call('bins.insert');
+    // meteor call back takes 2 args: error and the value that returned from the method
+    Meteor.call('bins.insert', (error, binId) => {
+      this.props.history.push(`/bins/${binId}`);
+    });
   }
 
   render() {
     return (
       <nav className="nav navbar-default">
         <div className="navbar-header">
-          <a href="" className="navbar-brand">MarkBin</a>
+          <Link to="/" className="navbar-brand">MarkBin</Link>
         </div>
         <ul className="nav navbar-nav">
           <li>
