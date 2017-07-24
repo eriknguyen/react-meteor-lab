@@ -116,3 +116,5 @@
 * Install dependencies:
   * `npm install --save react-codemirror`
   * `meteor add sgslo:cmstyle` for styling the editor
+* Use `onEditorChange(content)` to update and store bin content when user changes
+* `markdown` npm package for translate markdown str into html view
