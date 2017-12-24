@@ -1,6 +1,6 @@
 # Realtime App built with React & Meteor
 
-## Setup
+## 1. Setup
 ### Meteor Project
 * Includes:
   * Place to put code
@@ -10,11 +10,11 @@
 * Meteor -> keep track of data in our app
 * React -> Take data to product HTML, handle user events
 
-## React Primer
+## 2. React Primer
 *Project [Images Gallery](https://github.com/eriknguyen/markdown-realtime/tree/master/images)*
 * `Meteor.startup(() => {})`: takes the function, run it when Meteor has started up: meteor has loaded, all HTML & DOM elements are rendered
 
-## Meteor Overview
+## 3. Meteor Overview - Employee Directory
 *Project [Employee Directory](https://github.com/eriknguyen/markdown-realtime/tree/master/employee-directory)*
 * Folder:
   * client: to be bundled and served to client
@@ -30,7 +30,7 @@
 
 * Update & re-render component without using component-level state
 
-## URL Shortener
+## 4. URL Shortener
 *Project [URL Shortener](https://github.com/eriknguyen/markdown-realtime/tree/master/url-shortener)*
 
 ### Challenges
@@ -70,7 +70,7 @@
 * Install `connect-route` for routing (similar to Express routing) -> creates a middleware that takes in HTTP request, check route then does according actions
 * Update number of clicks using Mongo Modifier `{$inc: {}}` inside the `update()` method, eg. `Links.update(link, { $inc: { clicks: 1 }})`
 
-## Collaborative Markdown Editor
+## 5. Collaborative Markdown Editor
 *Project dir [Markdown Bin](https://github.com/eriknguyen/markdown-realtime/tree/master/markdown-editor)*
 
 ### Main features
