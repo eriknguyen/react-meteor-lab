@@ -6,7 +6,7 @@ class LinkList extends React.Component {
   renderRows() {
     return this.props.links.map(link => {
       const { url, clicks, token } = link;
-      const shortLink = `http://localhost:3000/${token}`;
+      const shortLink = `${window.location.href}${token}`;
       return (
         <tr key={token}>
           <td>{url}</td>
